@@ -54,9 +54,9 @@ class loanControllerTest extends TestCase
       public function test_Check_If_Unauthorized_User_Can_Request_loan_Create() {
 
         $userData = [
-            "type" => "John Doe",
-            "amount" => "0",
-            "period" => "demo12345"
+            "type":personal loan
+            "amount":100
+            "period":12
         ];
 
         $this->json('POST', '/loan/create', $userData, ['Accept' => 'application/json'])
@@ -72,12 +72,12 @@ class loanControllerTest extends TestCase
     public function test_Check_If_Normal_User_Can_Approve_loan_request() {
     
         $userData = [
-            "type" => "John Doe",
-            "amount" => "0",
-            "period" => "demo12345"
+            "loan_id":2
+            "user_id":2
+            "interest_rate":2
         ];
 
-
+        
        $this->json('POST', '/admin/loan/approve', $userData, ['Accept' => 'application/json'])
             ->assertStatus(404)
             ->assertJson([
