@@ -12,11 +12,27 @@ https://www.getpostman.com/collections/b7c9a3766e1c0c3258bf
 
 - git clone https://github.com/hm-harshit/loanApp.git; cd loanApp;
 - composer update
-- php artisan migrate
+- Enter the Mysql database details in .env file
+- php artisan migrate or import the db.sql file
 - php artisan passport:install
 - php artisan serve
 
 ## Database Stractures
 For user authentication I am usign Laravel Passport.
+
+There are Two type of users (user Table has "type" field)
+- Normal User (which has the type is 0)
+- Admin User (which has the type is 1)
+
+Normal User can create Loan Request which is approved by
+admin user (In the loans tabel there is field is_approved) with intrest rate.
+
+In the Loans Table there are 4 types of status 
+- 0 = Pending (When the Loan is pending)
+- 1 = Paid (When the admin has paid the loan amount)
+- 2 = Completed (When the user has repaid all the EMI's)
+- 3 = UnPaid (When the user hasn’t repaid the loan amount and time period has gone)
+
+
 
 ![screenshot](screenshot.png)
